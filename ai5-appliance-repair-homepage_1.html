@@ -1,0 +1,3047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI5 Appliance Repair | Smart Repairs. Real People. | Honolulu & Kailua-Kona, Hawaii</title>
+<meta name="description" content="Hawaii's only appliance repair service with AI-powered diagnosis. Same-day service, $39 diagnostic fee waived with repair. Serving Honolulu & Kailua-Kona. Book online now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES — AI5 Brand System
+   ============================================================ */
+:root {
+  --charcoal:    #1C1917;
+  --espresso:    #78350F;
+  --espresso-lt: #92400E;
+  --amber:       #D97706;
+  --amber-lt:    #F59E0B;
+  --cream:       #FEF3C7;
+  --linen:       #F5F0E8;
+  --sky:         #0EA5E9;
+  --sky-lt:      #38BDF8;
+  --sky-dark:    #0284C7;
+  --white:       #FFFFFF;
+  --gray-100:    #F3F4F6;
+  --gray-300:    #D1D5DB;
+  --gray-500:    #6B7280;
+  --gray-700:    #374151;
+
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius:    12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(28,25,23,.08);
+  --shadow-md: 0 8px 32px rgba(28,25,23,.14);
+  --shadow-lg: 0 20px 60px rgba(28,25,23,.20);
+
+  --max-w: 1200px;
+  --transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; font-family: var(--font-body); }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--charcoal);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--gray-500);
+  max-width: 580px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .9375rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-amber {
+  background: var(--amber);
+  color: var(--white);
+}
+.btn-amber:hover { background: var(--amber-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217,119,6,.35); }
+
+.btn-sky {
+  background: var(--sky);
+  color: var(--white);
+}
+.btn-sky:hover { background: var(--sky-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,165,233,.35); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--espresso);
+  border: 2px solid var(--espresso);
+}
+.btn-outline:hover { background: var(--espresso); color: var(--white); transform: translateY(-2px); }
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,.45);
+}
+.btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+
+/* ============================================================
+   1. STICKY NAVIGATION
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.nav-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--espresso);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--amber);
+  letter-spacing: -.02em;
+}
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+.nav-logo-text span { display: block; font-size: .65rem; font-weight: 500; color: var(--gray-500); letter-spacing: .04em; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.nav-links a:hover { color: var(--espresso); background: var(--linen); }
+
+.nav-ctas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.nav-phone {
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--espresso);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-phone svg { color: var(--amber); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ============================================================
+   2. HERO SECTION
+   ============================================================ */
+#hero {
+  padding-top: 72px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--linen) 0%, var(--cream) 60%, #fff8ed 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative blobs */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(14,165,233,.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(217,119,6,.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14,165,233,.1);
+  border: 1px solid rgba(14,165,233,.25);
+  color: var(--sky-dark);
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  animation: fadeUp .6s ease forwards;
+}
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--sky);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.4); }
+}
+
+.hero-h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.08;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+  animation: fadeUp .7s .1s ease both;
+}
+.hero-h1 em {
+  font-style: normal;
+  color: var(--espresso);
+  position: relative;
+}
+.hero-h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--amber);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineReveal .6s .8s ease forwards;
+}
+@keyframes underlineReveal { to { transform: scaleX(1); } }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  margin-bottom: 32px;
+  line-height: 1.7;
+  animation: fadeUp .7s .2s ease both;
+}
+
+.hero-pricing {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  animation: fadeUp .7s .25s ease both;
+}
+.hero-price-tag {
+  background: var(--espresso);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .875rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  line-height: 1.3;
+}
+.hero-price-tag span { display: block; font-size: .7rem; font-weight: 400; opacity: .8; }
+.hero-offer {
+  font-size: .85rem;
+  color: var(--gray-500);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: fadeUp .7s .3s ease both;
+}
+
+.hero-trust {
+  display: flex;
+  gap: 24px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+  animation: fadeUp .7s .4s ease both;
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .83rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+.hero-trust-item svg { color: var(--amber); flex-shrink: 0; }
+
+/* Hero right panel */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeRight .8s .2s ease both;
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes fadeRight { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+
+.hero-img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--espresso) 0%, var(--charcoal) 100%);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Placeholder visual for hero image */
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.8);
+  gap: 12px;
+  padding: 40px;
+  text-align: center;
+}
+.hero-img-placeholder .tech-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.hero-img-placeholder p { font-size: .8rem; opacity: .6; line-height: 1.5; }
+.hero-img-placeholder strong { font-size: 1rem; font-family: var(--font-heading); }
+
+.same-day-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--amber);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Mini booking form */
+.hero-booking-form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-100);
+}
+.hero-booking-form h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--charcoal);
+}
+.hero-booking-form p {
+  font-size: .8rem;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+.mini-form { display: flex; flex-direction: column; gap: 10px; }
+.mini-form input, .mini-form select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: .875rem;
+  color: var(--charcoal);
+  background: var(--white);
+  transition: var(--transition);
+  -webkit-appearance: none;
+}
+.mini-form input:focus, .mini-form select:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(217,119,6,.12);
+}
+.mini-form .btn { width: 100%; justify-content: center; font-size: .9rem; padding: 12px; }
+.discount-note {
+  text-align: center;
+  font-size: .75rem;
+  color: var(--gray-500);
+  margin-top: 8px;
+}
+.discount-note strong { color: var(--espresso); }
+
+/* ============================================================
+   3. TRUST BAR
+   ============================================================ */
+#trust-bar {
+  background: var(--espresso);
+  padding: 20px 0;
+}
+
+.trust-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  flex: 1;
+  min-width: 160px;
+  justify-content: center;
+}
+.trust-item svg { color: var(--amber); flex-shrink: 0; }
+.trust-item-text strong {
+  display: block;
+  font-size: .875rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+.trust-item-text span { font-size: .7rem; opacity: .75; }
+
+/* ============================================================
+   4. SERVICES GRID
+   ============================================================ */
+#services {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.services-header .section-sub { margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--linen);
+  border: 1px solid rgba(120,53,15,.08);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(217,119,6,.2);
+}
+.service-card:hover::after { transform: scaleX(1); }
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--espresso);
+}
+.service-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--charcoal);
+}
+.service-card p {
+  font-size: .83rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+.service-link {
+  font-size: .83rem;
+  font-weight: 600;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+}
+
+/* ============================================================
+   5. AI DIAGNOSIS FEATURE
+   ============================================================ */
+#ai-feature {
+  background: var(--charcoal);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+#ai-feature::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(14,165,233,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.ai-content .section-title { color: var(--white); }
+.ai-content .section-sub { color: rgba(255,255,255,.6); }
+
+.ai-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+.ai-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.ai-step-num {
+  width: 40px;
+  height: 40px;
+  background: rgba(14,165,233,.15);
+  border: 1.5px solid rgba(14,165,233,.35);
+  border-radius: 10px;
+  color: var(--sky);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ai-step-body h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.ai-step-body p { font-size: .875rem; color: rgba(255,255,255,.55); line-height: 1.6; }
+
+.ai-ctas { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Demo chatbot preview */
+.ai-chat-preview {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+}
+.chat-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--sky);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.chat-name { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: .9rem; }
+.chat-status { font-size: .72rem; color: var(--sky); }
+.chat-status::before { content: '● '; }
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: .83rem;
+  line-height: 1.5;
+  animation: fadeUp .4s ease forwards;
+  opacity: 0;
+}
+.chat-bubble.bot {
+  background: rgba(14,165,233,.15);
+  border: 1px solid rgba(14,165,233,.2);
+  color: rgba(255,255,255,.9);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble.user {
+  background: var(--amber);
+  color: var(--white);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+}
+.chat-bubble.diagnosis {
+  background: rgba(16,185,129,.1);
+  border: 1px solid rgba(16,185,129,.25);
+  color: rgba(255,255,255,.9);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  max-width: 95%;
+}
+.chat-bubble:nth-child(1) { animation-delay: .1s; }
+.chat-bubble:nth-child(2) { animation-delay: .8s; }
+.chat-bubble:nth-child(3) { animation-delay: 1.4s; }
+.chat-bubble:nth-child(4) { animation-delay: 2s; }
+.chat-bubble:nth-child(5) { animation-delay: 2.8s; }
+
+.chat-book-btn {
+  background: var(--amber);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: .83rem;
+  cursor: pointer;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+.chat-book-btn:hover { background: var(--amber-lt); }
+
+/* ============================================================
+   6. BRANDS CAROUSEL
+   ============================================================ */
+#brands {
+  padding: 80px 0;
+  background: var(--linen);
+}
+.brands-header { text-align: center; margin-bottom: 40px; }
+
+.brands-track-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.brands-track-wrap::before,
+.brands-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.brands-track-wrap::before { left: 0; background: linear-gradient(to right, var(--linen), transparent); }
+.brands-track-wrap::after { right: 0; background: linear-gradient(to left, var(--linen), transparent); }
+
+.brands-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+.brands-track:hover { animation-play-state: paused; }
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.brand-chip {
+  background: var(--white);
+  border: 1px solid rgba(120,53,15,.1);
+  border-radius: 10px;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .875rem;
+  color: var(--charcoal);
+  white-space: nowrap;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.brand-chip:hover { border-color: var(--amber); box-shadow: var(--shadow-sm); color: var(--espresso); }
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
+}
+
+/* ============================================================
+   7. STATS
+   ============================================================ */
+#stats {
+  padding: 80px 0;
+  background: var(--cream);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.stat-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(217,119,6,.1);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.stat-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: .83rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+/* ============================================================
+   8. GOOGLE REVIEWS
+   ============================================================ */
+#reviews {
+  padding: 100px 0;
+  background: var(--white);
+}
+.reviews-header { text-align: center; margin-bottom: 56px; }
+.reviews-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.stars { color: #FFC107; font-size: 1.25rem; letter-spacing: 2px; }
+.rating-text { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; }
+.rating-sub { font-size: .83rem; color: var(--gray-500); }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.review-card {
+  background: var(--linen);
+  border: 1px solid rgba(120,53,15,.08);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: var(--transition);
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.review-name { font-weight: 700; font-size: .9rem; color: var(--charcoal); }
+.review-date { font-size: .72rem; color: var(--gray-500); }
+.review-stars { color: #FFC107; font-size: .875rem; margin-bottom: 12px; }
+.review-text { font-size: .875rem; color: var(--gray-700); line-height: 1.65; }
+
+.reviews-cta { text-align: center; }
+.google-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--sky-dark);
+  font-weight: 600;
+  font-size: .9rem;
+  transition: var(--transition);
+}
+.google-link:hover { color: var(--sky); }
+
+/* ============================================================
+   9. BOOKING SECTION
+   ============================================================ */
+#booking {
+  padding: 100px 0;
+  background: var(--linen);
+}
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.booking-content .section-title { margin-bottom: 12px; }
+
+.booking-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+.booking-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .875rem;
+  color: var(--gray-700);
+}
+.booking-feature svg { color: var(--amber); margin-top: 2px; flex-shrink: 0; }
+
+.booking-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(120,53,15,.12);
+}
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+.contact-line svg { color: var(--espresso); flex-shrink: 0; }
+
+.booking-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(120,53,15,.08);
+}
+.booking-form-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+.booking-form-card .offer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217,119,6,.1);
+  color: var(--espresso);
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+.full-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-field label {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.form-field input, .form-field select, .form-field textarea {
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: .875rem;
+  color: var(--charcoal);
+  background: var(--white);
+  transition: var(--transition);
+  -webkit-appearance: none;
+}
+.form-field textarea { resize: vertical; min-height: 80px; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(217,119,6,.12);
+}
+.full-form .btn { justify-content: center; font-size: 1rem; padding: 15px; }
+.form-footer { font-size: .75rem; color: var(--gray-500); text-align: center; }
+
+/* ============================================================
+   10. BLOG STRIP
+   ============================================================ */
+#blog {
+  padding: 100px 0;
+  background: var(--white);
+}
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.blog-card {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(217,119,6,.15); }
+
+.blog-thumb {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--espresso) 0%, #4a1a02 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.3);
+  font-size: 2.5rem;
+  position: relative;
+}
+.blog-thumb-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--amber);
+  color: var(--white);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.blog-body { padding: 24px; }
+.blog-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: .75rem;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+.blog-body h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.blog-body p { font-size: .83rem; color: var(--gray-500); line-height: 1.55; margin-bottom: 16px; }
+.read-more {
+  font-size: .83rem;
+  font-weight: 600;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 72px 0 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand p {
+  font-size: .875rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.7;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--amber);
+  font-size: .9rem;
+  margin-bottom: 20px;
+}
+.footer-socials { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.6);
+  font-size: .8rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.social-btn:hover { background: var(--amber); color: var(--white); }
+
+.footer-col h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .875rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-size: .83rem;
+  color: rgba(255,255,255,.5);
+  transition: var(--transition);
+}
+.footer-col a:hover { color: var(--amber); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.35); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: .8rem; color: rgba(255,255,255,.35); transition: var(--transition); }
+.footer-legal a:hover { color: rgba(255,255,255,.7); }
+
+/* ============================================================
+   AI CHATBOT WIDGET
+   ============================================================ */
+#chatbot-bubble {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+}
+
+.chat-fab {
+  width: 60px;
+  height: 60px;
+  background: var(--sky);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(14,165,233,.45);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  color: var(--white);
+  position: relative;
+}
+.chat-fab:hover { background: var(--sky-lt); transform: scale(1.08); }
+
+.chat-fab-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: var(--amber);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .6rem;
+  font-weight: 700;
+  color: var(--white);
+  animation: pulse 2s infinite;
+}
+
+/* Chat window */
+#chat-window {
+  display: none;
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 380px;
+  max-height: 580px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(28,25,23,.25);
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--gray-100);
+}
+#chat-window.open {
+  display: flex;
+  animation: slideUp .3s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+.chat-win-header {
+  background: linear-gradient(135deg, var(--sky-dark) 0%, var(--sky) 100%);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.chat-win-avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.chat-win-name {
+  flex: 1;
+}
+.chat-win-name strong { display: block; font-family: var(--font-heading); font-weight: 700; font-size: .95rem; color: var(--white); }
+.chat-win-name span { font-size: .72rem; color: rgba(255,255,255,.75); }
+.chat-win-name span::before { content: '● '; color: #86efac; }
+.chat-close {
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: var(--white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.chat-close:hover { background: rgba(255,255,255,.3); }
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 2px; }
+
+.msg {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+.msg.bot {
+  background: var(--linen);
+  border: 1px solid rgba(120,53,15,.1);
+  color: var(--charcoal);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.msg.user {
+  background: var(--sky);
+  color: var(--white);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+}
+.msg.typing {
+  background: var(--linen);
+  border: 1px solid rgba(120,53,15,.1);
+  align-self: flex-start;
+}
+.typing-dots { display: flex; gap: 4px; padding: 4px 0; }
+.typing-dots span {
+  width: 7px;
+  height: 7px;
+  background: var(--gray-300);
+  border-radius: 50%;
+  animation: typingBounce 1.2s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: .2s; }
+.typing-dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  align-self: flex-start;
+  max-width: 100%;
+}
+.qr-btn {
+  background: var(--white);
+  border: 1.5px solid rgba(14,165,233,.4);
+  color: var(--sky-dark);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+.qr-btn:hover { background: var(--sky); color: var(--white); border-color: var(--sky); }
+
+.book-cta-msg {
+  background: linear-gradient(135deg, rgba(217,119,6,.1) 0%, rgba(120,53,15,.08) 100%);
+  border: 1.5px solid rgba(217,119,6,.2);
+  border-radius: 12px;
+  padding: 14px;
+  align-self: flex-start;
+  max-width: 90%;
+}
+.book-cta-msg h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .875rem;
+  color: var(--espresso);
+  margin-bottom: 4px;
+}
+.book-cta-msg p { font-size: .78rem; color: var(--gray-700); margin-bottom: 10px; line-height: 1.45; }
+.book-now-btn {
+  background: var(--amber);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: .8rem;
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+.book-now-btn:hover { background: var(--amber-lt); }
+
+.chat-input-area {
+  padding: 16px;
+  border-top: 1px solid var(--gray-100);
+  flex-shrink: 0;
+}
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#chat-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: var(--charcoal);
+  outline: none;
+  transition: var(--transition);
+}
+#chat-input:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,.12); }
+.chat-send {
+  width: 38px;
+  height: 38px;
+  background: var(--sky);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.chat-send:hover { background: var(--sky-lt); transform: scale(1.08); }
+
+.chat-disclaimer {
+  text-align: center;
+  font-size: .68rem;
+  color: var(--gray-500);
+  margin-top: 8px;
+}
+
+/* ============================================================
+   FLOATING CALL WIDGET
+   ============================================================ */
+#call-widget {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Tooltip bubble that appears on hover / expanded state */
+.call-tooltip {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 210px;
+  transform-origin: bottom left;
+  animation: callTooltipIn .25s cubic-bezier(.4,0,.2,1) forwards;
+  pointer-events: none;
+}
+.call-tooltip.hidden {
+  display: none;
+}
+@keyframes callTooltipIn {
+  from { opacity: 0; transform: scale(.9) translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.call-tooltip-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+.call-tooltip-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  letter-spacing: -.01em;
+}
+.call-tooltip-hours {
+  font-size: .72rem;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.call-tooltip-hours::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+/* The main call FAB */
+.call-fab {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--espresso) 0%, #5c2009 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(120,53,15,.45);
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+  position: relative;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.call-fab:hover {
+  background: linear-gradient(135deg, var(--espresso-lt) 0%, var(--espresso) 100%);
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px rgba(120,53,15,.55);
+}
+
+/* Ripple ring around call button */
+.call-fab::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(120,53,15,.25);
+  animation: callRipple 2.5s ease-out infinite;
+}
+.call-fab::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 2px solid rgba(120,53,15,.1);
+  animation: callRipple 2.5s ease-out infinite .5s;
+}
+@keyframes callRipple {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Amber "CALL" label pill */
+.call-label-pill {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--amber);
+  color: var(--white);
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  padding: 2px 7px;
+  border-radius: 10px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(217,119,6,.4);
+}
+
+/* Expanded pill — slides out from the FAB on hover */
+.call-expand-pill {
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 100px;
+  padding: 0 18px 0 14px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(-10px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.call-fab-wrap:hover .call-expand-pill,
+.call-fab-wrap:focus-within .call-expand-pill {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+.call-expand-pill span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--charcoal);
+}
+.call-expand-pill small {
+  font-size: .72rem;
+  color: var(--gray-500);
+  display: block;
+  line-height: 1.2;
+}
+
+.call-fab-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile: hide expand pill, keep FAB */
+@media (max-width: 480px) {
+  #call-widget { bottom: 20px; left: 20px; }
+  .call-expand-pill { display: none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-phone { display: none; }
+  .nav-toggle { display: flex; }
+
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-right { order: -1; }
+
+  .trust-bar-inner { gap: 12px; }
+  .trust-item { min-width: calc(50% - 8px); }
+
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .ai-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  #chat-window { width: calc(100vw - 56px); right: -14px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     1. STICKY NAVIGATION
+     ============================================================ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">AI5</div>
+        <div class="nav-logo-text">
+          AI5 Appliance Repair
+          <span>Smart Repairs. Real People.</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" style="color:var(--sky);font-weight:600;">AI Diagnosis</a></li>
+      </ul>
+
+      <div class="nav-ctas">
+        <a href="tel:8084684484" class="nav-phone">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 7.59 7.59l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+          808-468-4484
+        </a>
+        <a href="#booking" class="btn btn-amber" style="padding:10px 20px;font-size:.85rem;">Book Now</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Copy -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Hawaii's Only AI-Powered Appliance Repair
+        </div>
+
+        <h1 class="hero-h1">
+          Your Appliance Fixed Fast —<br>
+          <em>Diagnosed Before We Arrive.</em>
+        </h1>
+
+        <p class="hero-sub">
+          AI5 Appliance Repair combines 40+ years of hands-on expertise with AI-powered diagnosis technology. We identify the problem before the tech walks through your door — saving you time and reducing repair costs.
+        </p>
+
+        <div class="hero-pricing">
+          <div class="hero-price-tag">
+            $39 Diagnostic Fee
+            <span>Waived with completed repair</span>
+          </div>
+          <p class="hero-offer">📍 Serving Honolulu & Kailua-Kona, Hawaii</p>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-sky" onclick="openChat()">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Chat with AI Technician
+          </a>
+          <a href="#booking" class="btn btn-amber">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book a Repair
+          </a>
+          <a href="tel:8084684484" class="btn btn-outline">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 7.59 7.59l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            Call Now
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Same-Day Available
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Licensed & Certified
+          </div>
+          <div class="hero-trust-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            10% Off First Repair
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image + mini form -->
+      <div class="hero-right">
+        <div class="hero-img-wrap">
+          <div class="hero-img-placeholder">
+            <div class="tech-icon">
+              <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.7)" stroke-width="1.5">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <strong>AI5 Certified Technician</strong>
+            <p>Replace with your technician photo<br>in Elementor — recommended: 16:9 or 4:3, warm-lit, professional setting</p>
+          </div>
+          <div class="same-day-badge">
+            ⚡ Same Day Service Available
+          </div>
+        </div>
+
+        <!-- Mini Booking Form -->
+        <div class="hero-booking-form">
+          <h3>Get a Free Diagnosis Estimate</h3>
+          <p>Fill in your info and we'll reach out within 30 minutes.</p>
+          <div class="mini-form">
+            <input type="text" placeholder="Your Full Name" />
+            <input type="tel" placeholder="Phone Number" />
+            <select>
+              <option value="" disabled selected>Select Appliance Type</option>
+              <option>Refrigerator / Freezer</option>
+              <option>Washer</option>
+              <option>Dryer</option>
+              <option>Dishwasher</option>
+              <option>Oven / Range / Cooktop</option>
+              <option>Ice Maker</option>
+              <option>Microwave</option>
+              <option>Wine Cooler</option>
+              <option>Other</option>
+            </select>
+            <a href="#booking" class="btn btn-amber">
+              Request Callback →
+            </a>
+          </div>
+          <p class="discount-note">🎉 <strong>10% off your first repair</strong> when you book today</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. TRUST BAR
+     ============================================================ -->
+<section id="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="trust-item-text">
+          <strong>40+ Years Experience</strong>
+          <span>Trusted since 1984</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="trust-item-text">
+          <strong>Licensed & Certified</strong>
+          <span>Factory-trained technicians</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="trust-item-text">
+          <strong>Same-Day Service</strong>
+          <span>Available 7 days a week</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        <div class="trust-item-text">
+          <strong>AI-Powered Diagnosis</strong>
+          <span>Problem identified before arrival</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        <div class="trust-item-text">
+          <strong>Satisfaction Guaranteed</strong>
+          <span>We stand behind every repair</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. SERVICES GRID
+     ============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-label">What We Repair</span>
+      <h2 class="section-title">Every Major Appliance.<br>One Trusted Team.</h2>
+      <p class="section-sub">From refrigerators to wine coolers — if it runs in your home, our factory-trained technicians fix it right the first time.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><circle cx="8" cy="6" r="1"/></svg>
+        </div>
+        <h3>Refrigerator & Freezer Repair</h3>
+        <p>Not cooling, ice buildup, water leaks, noisy compressor — we diagnose and fix same day.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v1M12 15v1M8 12h1M15 12h1"/></svg>
+        </div>
+        <h3>Washer & Dryer Repair</h3>
+        <p>Not spinning, not heating, error codes, drum issues — front-load and top-load specialists.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><line x1="6" y1="8" x2="10" y2="8"/></svg>
+        </div>
+        <h3>Dishwasher Repair</h3>
+        <p>Not cleaning, not draining, door latch problems, control board issues — fast fixes guaranteed.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6M3 15h6"/><circle cx="16" cy="10" r="2"/></svg>
+        </div>
+        <h3>Oven & Range Repair</h3>
+        <p>Not heating, igniter problems, temperature issues, gas or electric — all brands serviced.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg>
+        </div>
+        <h3>Ice Maker & Ice Machine</h3>
+        <p>Not making ice, slow production, leaking, bad taste — built-in and undercounter units.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3>Cooktop Repair</h3>
+        <p>Burner not working, cracked glass, igniter issues, induction problems — all types covered.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M12 6v6M9 9h6"/></svg>
+        </div>
+        <h3>Stove Repair</h3>
+        <p>Gas or electric, burner issues, control problems — quick diagnosis and reliable repairs.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20M6 12h.01M10 12h.01"/></svg>
+        </div>
+        <h3>Microwave Repair</h3>
+        <p>Not heating, turntable stuck, door issues, sparking — countertop and built-in models.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="12" x2="19" y2="12"/><path d="M8 7h.01M8 17h.01"/></svg>
+        </div>
+        <h3>Wine Cooler Repair</h3>
+        <p>Temperature fluctuations, compressor issues, Sub-Zero and luxury brand specialists.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. AI DIAGNOSIS FEATURE SECTION
+     ============================================================ -->
+<section id="ai-feature">
+  <div class="container">
+    <div class="ai-grid">
+
+      <div class="ai-content reveal">
+        <span class="section-label" style="color:var(--sky);">The AI5 Difference</span>
+        <h2 class="section-title" style="color:var(--white);">Tell Us What's Wrong — Our AI Identifies the Problem Before We Arrive.</h2>
+        <p class="section-sub">No other appliance repair company in Hawaii offers this. Our AI diagnostic system analyzes your symptoms, pinpoints the likely fault, and briefs your technician before the first visit — cutting repair time and saving you money.</p>
+
+        <div class="ai-steps">
+          <div class="ai-step">
+            <div class="ai-step-num">1</div>
+            <div class="ai-step-body">
+              <h4>Describe Your Appliance Issue</h4>
+              <p>Tell our AI assistant what's happening — in plain English. No technical knowledge needed. "My fridge isn't cooling" is enough to start.</p>
+            </div>
+          </div>
+          <div class="ai-step">
+            <div class="ai-step-num">2</div>
+            <div class="ai-step-body">
+              <h4>AI Diagnoses the Likely Problem</h4>
+              <p>Our system asks 2–3 follow-up questions, then delivers a plain-language diagnosis: "This sounds like a faulty evaporator fan motor — a common fix we handle in one visit."</p>
+            </div>
+          </div>
+          <div class="ai-step">
+            <div class="ai-step-num">3</div>
+            <div class="ai-step-body">
+              <h4>Book a Certified Tech to Confirm & Fix It</h4>
+              <p>One tap schedules your appointment. Your technician receives the full AI diagnosis before arrival — prepared with the right tools and parts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-ctas">
+          <button class="btn btn-sky" onclick="openChat()">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Try the AI Symptom Checker
+          </button>
+          <a href="#" class="btn btn-outline-white">Learn How It Works</a>
+        </div>
+      </div>
+
+      <!-- Chat preview animation -->
+      <div class="ai-chat-preview reveal reveal-delay-2">
+        <div class="chat-preview-header">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <div class="chat-name">AI5 Repair Assistant</div>
+            <div class="chat-status">Online — Average response: instant</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="chat-bubble bot">Hi! I'm the AI5 Repair Assistant. What appliance is giving you trouble today? 👋</div>
+          <div class="chat-bubble user">My refrigerator isn't cooling at all.</div>
+          <div class="chat-bubble bot">Got it. Is there any sound coming from the fridge — like a buzzing or clicking — or is it completely silent?</div>
+          <div class="chat-bubble user">It's silent. No sounds at all.</div>
+          <div class="chat-bubble diagnosis">
+            🔍 <strong>AI Diagnosis:</strong><br><br>
+            Based on your description, this sounds like a <strong>compressor or start relay failure</strong> — one of the most common issues we fix in a single visit. Our tech will arrive with the right parts on hand.<br><br>
+            <button class="chat-book-btn" onclick="openChat()">
+              📅 Book a Certified Tech to Confirm & Fix This
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. BRANDS CAROUSEL
+     ============================================================ -->
+<section id="brands">
+  <div class="container">
+    <div class="brands-header reveal">
+      <span class="section-label">Brands We Service</span>
+      <h2 class="section-title">We Service All Major Brands & Models</h2>
+      <p class="section-sub" style="margin:0 auto;">Factory-trained on the brands that matter most in Hawaii homes — luxury to everyday.</p>
+    </div>
+  </div>
+
+  <div class="brands-track-wrap">
+    <div class="brands-track">
+      <!-- Duplicate for infinite scroll -->
+      <div class="brand-chip"><div class="brand-dot"></div>Sub-Zero</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Viking</div>
+      <div class="brand-chip"><div class="brand-dot"></div>KitchenAid</div>
+      <div class="brand-chip"><div class="brand-dot"></div>GE Monogram</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Whirlpool</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Maytag</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Samsung</div>
+      <div class="brand-chip"><div class="brand-dot"></div>LG</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Bosch</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Thermador</div>
+      <!-- Duplicates for seamless loop -->
+      <div class="brand-chip"><div class="brand-dot"></div>Sub-Zero</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Viking</div>
+      <div class="brand-chip"><div class="brand-dot"></div>KitchenAid</div>
+      <div class="brand-chip"><div class="brand-dot"></div>GE Monogram</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Whirlpool</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Maytag</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Samsung</div>
+      <div class="brand-chip"><div class="brand-dot"></div>LG</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Bosch</div>
+      <div class="brand-chip"><div class="brand-dot"></div>Thermador</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. STATS COUNTER
+     ============================================================ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-num" data-target="40" data-suffix="+">0+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-num" data-target="10000" data-suffix="+">0+</div>
+        <div class="stat-label">Appliances Repaired</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+        <div class="stat-label">5-Star Reviews</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-num" data-target="98" data-suffix="%">0%</div>
+        <div class="stat-label">Customer Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. GOOGLE REVIEWS
+     ============================================================ -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <span class="section-label">Customer Reviews</span>
+      <h2 class="section-title">Hawaii Homeowners Trust AI5</h2>
+      <div class="reviews-rating-summary">
+        <div class="stars">★★★★★</div>
+        <span class="rating-text">4.9</span>
+        <span class="rating-sub">/ 5.0 · 500+ Google Reviews</span>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div class="review-avatar" style="background:var(--espresso);">MK</div>
+          <div>
+            <div class="review-name">Maria K.</div>
+            <div class="review-date">2 weeks ago · Honolulu</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The AI chat told me exactly what was wrong with my Sub-Zero before the tech even showed up. He arrived with the part already in his van. Fixed in 45 minutes. Absolutely incredible service."</p>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-top">
+          <div class="review-avatar" style="background:var(--sky-dark);">JT</div>
+          <div>
+            <div class="review-name">James T.</div>
+            <div class="review-date">1 month ago · Kailua-Kona</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Called in the morning, they were at my door by noon. Samsung washer was throwing an error code and they knew exactly what it was. Fair price, fast repair, no runaround."</p>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#7c3aed;">AL</div>
+          <div>
+            <div class="review-name">Alicia L.</div>
+            <div class="review-date">3 weeks ago · Honolulu</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used the AI symptom checker at 11pm and it told me my KitchenAid refrigerator likely had an evaporator fan issue. Booked right there. Tech confirmed it next morning. Love this company."</p>
+      </div>
+    </div>
+
+    <!-- Elementor plugin note -->
+    <div style="text-align:center;padding:20px;background:var(--gray-100);border-radius:8px;font-size:.8rem;color:var(--gray-500);margin-bottom:32px;">
+      📌 <strong>Elementor Note:</strong> Replace this section with the <strong>Widgets for Google Reviews</strong> plugin widget — it auto-pulls your live Google Business Profile reviews.
+    </div>
+
+    <div class="reviews-cta">
+      <a href="#" class="google-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--sky)"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="var(--espresso)"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="var(--amber)"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        See All Reviews on Google
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. BOOKING SECTION
+     ============================================================ -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-grid">
+
+      <div class="booking-content reveal">
+        <span class="section-label">Book Your Repair</span>
+        <h2 class="section-title">Schedule Your Repair Today</h2>
+        <p class="section-sub">Online booking takes 60 seconds. Pick your appliance, describe the issue, and choose your time — we handle the rest.</p>
+
+        <div class="booking-features">
+          <div class="booking-feature">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Same-day appointments available for urgent repairs</span>
+          </div>
+          <div class="booking-feature">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>SMS and email confirmation sent immediately</span>
+          </div>
+          <div class="booking-feature">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Your AI diagnosis summary is shared with your technician before arrival</span>
+          </div>
+          <div class="booking-feature">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>$39 diagnostic fee — waived when we complete the repair</span>
+          </div>
+          <div class="booking-feature">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>10% off your first completed repair when you book online</span>
+          </div>
+        </div>
+
+        <div class="booking-contact">
+          <div class="contact-line">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 7.59 7.59l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            <a href="tel:8084684484" style="color:var(--espresso);font-weight:600;">808-468-4484</a>
+          </div>
+          <div class="contact-line">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@ai5appliancerepair.com
+          </div>
+          <div class="contact-line">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Sat: 7:00 AM – 6:00 PM · Sun: 8:00 AM – 4:00 PM
+          </div>
+          <div class="contact-line">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Honolulu & Kailua-Kona, Hawaii
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form Card -->
+      <div class="booking-form-card reveal reveal-delay-2">
+        <h3>Request a Repair Appointment</h3>
+        <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:12px;">We'll confirm your slot within 30 minutes by phone or text.</p>
+        <div class="offer-tag">
+          🎉 10% Off Your First Repair — Book Online Today
+        </div>
+
+        <!-- Elementor/WordPress note -->
+        <div style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.15);border-radius:8px;padding:12px 14px;font-size:.75rem;color:var(--sky-dark);margin-bottom:20px;">
+          📌 <strong>Elementor:</strong> Replace this form with your <strong>Bookly Pro</strong> or <strong>GoHighLevel Calendar Embed</strong> shortcode.
+        </div>
+
+        <div class="full-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" placeholder="John" />
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(808) 000-0000" />
+          </div>
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@email.com" />
+          </div>
+          <div class="form-field">
+            <label>Service Address</label>
+            <input type="text" placeholder="123 Main St, Honolulu, HI 96813" />
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Appliance Type</label>
+              <select>
+                <option value="" disabled selected>Select...</option>
+                <option>Refrigerator / Freezer</option>
+                <option>Washer</option>
+                <option>Dryer</option>
+                <option>Dishwasher</option>
+                <option>Oven / Range / Cooktop</option>
+                <option>Ice Maker</option>
+                <option>Microwave</option>
+                <option>Wine Cooler</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Brand</label>
+              <select>
+                <option value="" disabled selected>Select...</option>
+                <option>Sub-Zero</option>
+                <option>Viking</option>
+                <option>KitchenAid</option>
+                <option>GE Monogram</option>
+                <option>Whirlpool</option>
+                <option>Maytag</option>
+                <option>Samsung</option>
+                <option>LG</option>
+                <option>Bosch</option>
+                <option>Thermador</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Preferred Date</label>
+            <input type="date" />
+          </div>
+          <div class="form-field">
+            <label>Describe the Issue</label>
+            <textarea placeholder="e.g. My refrigerator isn't cooling. No sounds, ice in freezer is melted..."></textarea>
+          </div>
+          <button class="btn btn-amber" type="button" onclick="alert('Booking submitted! We will contact you within 30 minutes to confirm.')">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Confirm My Repair Appointment
+          </button>
+          <p class="form-footer">🔒 Your info is private and never shared. We'll reach out within 30 minutes.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. BLOG PREVIEW STRIP
+     ============================================================ -->
+<section id="blog">
+  <div class="container">
+    <div class="blog-header reveal">
+      <div>
+        <span class="section-label">Repair Tips & Guides</span>
+        <h2 class="section-title">Appliance Repair Tips & Guides</h2>
+      </div>
+      <a href="#" class="btn btn-outline">Browse All Articles →</a>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          🧊
+          <div class="blog-thumb-tag">Troubleshooting</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>May 15, 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+          <h3>Why Is My Refrigerator Not Cooling? (Top 5 Causes)</h3>
+          <p>A fridge that won't cool is a kitchen emergency. Here are the five most common causes — and how to know which one you have.</p>
+          <a href="#" class="read-more">Read Guide →</a>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-thumb">
+          ⚠️
+          <div class="blog-thumb-tag">Samsung</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>May 12, 2026</span>
+            <span>·</span>
+            <span>7 min read</span>
+          </div>
+          <h3>Samsung Washer Error Codes — What They Mean & How to Fix</h3>
+          <p>Seeing an error code on your Samsung washer? This guide decodes every common code and tells you what to do next.</p>
+          <a href="#" class="read-more">Read Guide →</a>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-thumb">
+          🔧
+          <div class="blog-thumb-tag">Decision Guide</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span>May 10, 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+          <h3>Repair or Replace? How to Decide for Any Home Appliance</h3>
+          <p>Before you spend thousands on a new appliance, read this. We'll show you exactly how to decide if a repair is the smarter move.</p>
+          <a href="#" class="read-more">Read Guide →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:12px;">
+          <div class="nav-logo-icon">AI5</div>
+          <div class="nav-logo-text" style="color:var(--white);">
+            AI5 Appliance Repair
+            <span style="color:rgba(255,255,255,.4);">ai5appliancerepair.com</span>
+          </div>
+        </div>
+        <p class="footer-tagline">"Smart Repairs. Real People."</p>
+        <p>Hawaii's most advanced appliance repair service — combining 40+ years of hands-on expertise with AI-powered diagnosis technology. Serving Honolulu, Kailua-Kona, and surrounding communities.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">ig</a>
+          <a href="#" class="social-btn">G</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Refrigerator Repair</a></li>
+          <li><a href="#">Washer & Dryer Repair</a></li>
+          <li><a href="#">Dishwasher Repair</a></li>
+          <li><a href="#">Oven & Range Repair</a></li>
+          <li><a href="#">Ice Maker Repair</a></li>
+          <li><a href="#">Microwave Repair</a></li>
+          <li><a href="#">Wine Cooler Repair</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Brands</h4>
+        <ul>
+          <li><a href="#">Sub-Zero Repair</a></li>
+          <li><a href="#">Viking Repair</a></li>
+          <li><a href="#">KitchenAid Repair</a></li>
+          <li><a href="#">Samsung Repair</a></li>
+          <li><a href="#">LG Repair</a></li>
+          <li><a href="#">Bosch Repair</a></li>
+          <li><a href="#">All Brands →</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About AI5</a></li>
+          <li><a href="#">The AI5 Difference</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Blog & Guides</a></li>
+          <li><a href="#">Book a Repair</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 AI5 Appliance Repair. All Rights Reserved. · Honolulu & Kailua-Kona, Hawaii · 808-468-4484</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING CALL WIDGET
+     ============================================================ -->
+<div id="call-widget">
+  <div class="call-tooltip" id="call-tooltip">
+    <span class="call-tooltip-label">Call Us Now</span>
+    <span class="call-tooltip-number">808-468-4484</span>
+    <span class="call-tooltip-hours">Open Today · 7 AM – 6 PM HST</span>
+  </div>
+  <div class="call-fab-wrap">
+    <a href="tel:8084684484" class="call-fab" aria-label="Call AI5 Appliance Repair" onmouseenter="hideTooltipPermanently()">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 7.59 7.59l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="call-label-pill">CALL</div>
+    </a>
+    <div class="call-expand-pill">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--espresso)" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 7.59 7.59l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div>
+        <span>808-468-4484</span>
+        <small>Tap to call · Same-day service</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AI CHATBOT WIDGET — FULL EMBEDDED SCRIPT
+     ============================================================ -->
+<div id="chatbot-bubble">
+  <!-- Trigger FAB -->
+  <button class="chat-fab" onclick="toggleChat()" id="chat-fab" aria-label="Open AI Repair Assistant">
+    <svg id="fab-icon-chat" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg id="fab-icon-close" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <div class="chat-fab-badge">AI</div>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-window">
+    <div class="chat-win-header">
+      <div class="chat-win-avatar">🤖</div>
+      <div class="chat-win-name">
+        <strong>AI5 Repair Assistant</strong>
+        <span>Online · Instant AI Diagnosis</span>
+      </div>
+      <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages">
+      <!-- Messages injected by JS -->
+    </div>
+
+    <div class="chat-input-area">
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type your reply..." onkeypress="handleKey(event)" />
+        <button class="chat-send" onclick="sendMessage()" aria-label="Send">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <p class="chat-disclaimer">AI diagnosis is a guide — a certified technician confirms all repairs.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ---- Chatbot State Machine ---- */
+const CHAT_STATES = {
+  GREETING:     'greeting',
+  SELECT_APPL:  'select_appliance',
+  SYMPTOM_1:    'symptom_1',
+  SYMPTOM_2:    'symptom_2',
+  SYMPTOM_3:    'symptom_3',
+  DIAGNOSIS:    'diagnosis',
+  CAPTURE_NAME: 'capture_name',
+  CAPTURE_PHONE:'capture_phone',
+  CONFIRMED:    'confirmed',
+};
+
+/* Appliance-specific symptom trees */
+const SYMPTOM_TREES = {
+  'Refrigerator / Freezer': {
+    q1: "Is the freezer section cold but the fridge section warm, or is nothing cold at all?",
+    qr1: ["Freezer works, fridge warm", "Nothing is cold at all", "It's making a strange noise", "Water is leaking"],
+    q2: {
+      "Freezer works, fridge warm": "Do you hear the fan running inside the refrigerator section?",
+      "Nothing is cold at all": "Do you hear any sound from the refrigerator at all — buzzing, clicking, or humming?",
+      "It's making a strange noise": "Would you describe the sound as: clicking, buzzing, rattling, or grinding?",
+      "Water is leaking": "Is the water pooling inside the fridge, underneath it, or both?"
+    },
+    qr2: {
+      "Freezer works, fridge warm": ["Yes, fan is running", "No, it's silent in there"],
+      "Nothing is cold at all": ["Yes, I hear buzzing/clicking", "Completely silent"],
+      "It's making a strange noise": ["Clicking", "Buzzing", "Rattling", "Grinding"],
+      "Water is leaking": ["Inside the fridge", "Underneath it", "Both places"]
+    },
+    diagnoses: {
+      "Freezer works, fridge warm|Yes, fan is running": "This strongly points to a <strong>blocked defrost drain or stuck damper</strong> — restricting cold air flow from the freezer to the fridge. Very common, usually fixed in one visit.",
+      "Freezer works, fridge warm|No, it's silent in there": "This looks like a <strong>failed evaporator fan motor</strong>. The fan is responsible for moving cold air from the freezer to the refrigerator section. Our tech will have this part on hand.",
+      "Nothing is cold at all|Yes, I hear buzzing/clicking": "This points to a <strong>faulty start relay on the compressor</strong> — a $30–$60 part that's one of the most common refrigerator repairs we handle. Quick fix.",
+      "Nothing is cold at all|Completely silent": "A completely silent fridge with no cooling is a sign of a <strong>failed compressor or control board</strong>. Our technician will diagnose which component and give you a transparent repair estimate.",
+      "It's making a strange noise|Clicking": "Clicking usually means the compressor is trying to start but failing — pointing to a <strong>faulty start relay or overload protector</strong>. Inexpensive and quick to replace.",
+      "It's making a strange noise|Buzzing": "Persistent buzzing often indicates a <strong>failing condenser fan motor or water inlet valve</strong>. Both are straightforward repairs our team handles daily.",
+      "It's making a strange noise|Rattling": "Rattling is typically caused by a <strong>loose drain pan, condenser fan blade, or compressor mount</strong>. Easy to identify and fix on-site.",
+      "It's making a strange noise|Grinding": "Grinding sounds usually mean the <strong>evaporator or condenser fan blade is hitting ice buildup or a worn bearing</strong>. We'll need to defrost and replace the affected component.",
+      "Water is leaking|Inside the fridge": "Water inside the refrigerator is almost always a <strong>clogged defrost drain tube</strong>. We clear it and prevent future buildup — a same-day fix.",
+      "Water is leaking|Underneath it": "Water pooling under the fridge usually points to a <strong>cracked or misaligned drain pan</strong> or a <strong>clogged drain line</strong>.",
+      "Water is leaking|Both places": "Water in multiple locations suggests a <strong>defrost drain clog causing overflow</strong>. We'll clear the drain system completely.",
+    }
+  },
+  'Washer': {
+    q1: "What's your washer doing (or not doing)?",
+    qr1: ["Won't start or turn on", "Not spinning / clothes still wet", "Not draining water", "Making loud noises", "Showing an error code"],
+    q2: {
+      "Won't start or turn on": "Does the display light up when you press power, or is it completely dead?",
+      "Not spinning / clothes still wet": "Is this a front-load or top-load washer?",
+      "Not draining water": "Is the water sitting in the drum, or draining very slowly?",
+      "Making loud noises": "When does the noise occur — during agitation, spinning, or the entire cycle?",
+      "Showing an error code": "What error code is displayed? (E.g., UE, 5E, LE, OE...)"
+    },
+    qr2: {
+      "Won't start or turn on": ["Display lights up but won't start", "Completely dead, no power"],
+      "Not spinning / clothes still wet": ["Front-load", "Top-load"],
+      "Not draining water": ["Water sitting in drum", "Draining very slowly"],
+      "Making loud noises": ["During agitation", "During spinning", "Entire cycle"],
+      "Showing an error code": []
+    },
+    diagnoses: {
+      "Won't start or turn on|Display lights up but won't start": "This points to a <strong>door latch sensor or lid switch failure</strong> — the washer thinks the door is open. Safety feature that's straightforward to replace.",
+      "Won't start or turn on|Completely dead, no power": "No power at all suggests a <strong>blown thermal fuse, failed control board, or power supply issue</strong>. Our tech will test each component systematically.",
+      "Not spinning / clothes still wet|Front-load": "Front-loaders that won't spin typically have a <strong>worn door seal, failed drive belt, or motor issue</strong>. We carry parts for all major brands.",
+      "Not spinning / clothes still wet|Top-load": "Top-loaders that won't spin usually point to a <strong>broken lid switch, worn agitator dogs, or motor coupling failure</strong>.",
+      "Not draining water|Water sitting in drum": "Standing water means a <strong>blocked pump filter or failed drain pump</strong> — one of our most common repairs, usually done in under an hour.",
+      "Not draining water|Draining very slowly": "Slow drainage points to a <strong>partially clogged drain hose or worn pump impeller</strong>. We'll clear the blockage and test the full drain system.",
+      "Making loud noises|During agitation": "Noise during agitation is often <strong>worn agitator dogs (top-load) or loose drum bearings (front-load)</strong>.",
+      "Making loud noises|During spinning": "Loud spinning typically means <strong>worn drum bearings or an unbalanced load sensor failure</strong>. Bearings left too long can damage the drum — don't delay.",
+      "Making loud noises|Entire cycle": "Noise throughout the cycle suggests a <strong>foreign object caught in the drum or a failing drive motor</strong>. We'll inspect and resolve.",
+      "Showing an error code|": "Error codes give us a head start on diagnosis. Our technician will bring the right parts based on your specific code and model.",
+    }
+  },
+  'Dryer': {
+    q1: "What issue is your dryer experiencing?",
+    qr1: ["Not heating at all", "Takes too long to dry", "Won't start", "Making unusual noises", "Drum not spinning"],
+    q2: {
+      "Not heating at all": "Is your dryer gas or electric?",
+      "Takes too long to dry": "When did you last clean the lint trap and vent hose?",
+      "Won't start": "Does the drum light/display turn on when you open the door?",
+      "Making unusual noises": "Describe the sound: squealing, thumping, rattling, or grinding?",
+      "Drum not spinning": "Do you hear the motor running even though the drum doesn't spin?"
+    },
+    qr2: {
+      "Not heating at all": ["Gas dryer", "Electric dryer"],
+      "Takes too long to dry": ["Recently cleaned", "Hasn't been cleaned in a while", "Not sure"],
+      "Won't start": ["Yes, display/light works", "Completely no power"],
+      "Making unusual noises": ["Squealing", "Thumping", "Rattling", "Grinding"],
+      "Drum not spinning": ["Yes, I hear the motor", "No sounds at all"]
+    },
+    diagnoses: {
+      "Not heating at all|Gas dryer": "Gas dryers that don't heat usually have a <strong>faulty igniter, flame sensor, or gas valve coils</strong>. Our tech is certified for gas appliance repair.",
+      "Not heating at all|Electric dryer": "Electric dryers that don't heat typically have a <strong>blown thermal fuse or failed heating element</strong> — both inexpensive parts we carry on our trucks.",
+      "Takes too long to dry|Recently cleaned": "If the vent is clear, slow drying points to a <strong>weak heating element (electric) or partial gas valve issue</strong>.",
+      "Takes too long to dry|Hasn't been cleaned in a while": "A clogged vent is the #1 cause of slow drying — and a fire hazard. We'll clean the full vent system and check the heating components.",
+      "Takes too long to dry|Not sure": "We'll inspect the full vent system and heating elements. This is often a simple fix that also improves safety.",
+      "Won't start|Yes, display/light works": "If power is present but the dryer won't run, suspect a <strong>faulty door switch or thermal fuse</strong>.",
+      "Won't start|Completely no power": "No power suggests a <strong>blown thermal fuse, tripped breaker, or failed control board</strong>.",
+      "Making unusual noises|Squealing": "Squealing almost always means a <strong>worn drum belt or idler pulley</strong>. We stock belts for all major brands.",
+      "Making unusual noises|Thumping": "Thumping is typically a <strong>worn drum roller or flat spot on the drum bearing</strong>.",
+      "Making unusual noises|Rattling": "Rattling usually means a <strong>small item caught in the drum fin or loose lint screen housing</strong>.",
+      "Making unusual noises|Grinding": "Grinding is a serious sign of <strong>worn drum glides or front bearing</strong>. Continuing to run can damage the drum itself.",
+      "Drum not spinning|Yes, I hear the motor": "Motor running but drum still means a <strong>broken drive belt</strong> — one of the simplest, most common dryer repairs.",
+      "Drum not spinning|No sounds at all": "No motor sound suggests a <strong>failed start switch or motor</strong>. Our tech will test both.",
+    }
+  },
+  'Dishwasher': {
+    q1: "What's happening with your dishwasher?",
+    qr1: ["Not cleaning dishes properly", "Not draining", "Door won't latch or stay closed", "Not starting", "Making unusual sounds"],
+    diagnoses: {
+      default: "Based on the most common dishwasher issues we service, this is likely related to a <strong>wash pump, control board, or spray arm blockage</strong>. Our technician will run a full diagnostic and identify the exact fault in one visit."
+    }
+  },
+  'Oven / Range / Cooktop': {
+    q1: "What's the issue with your oven, range, or cooktop?",
+    qr1: ["Not heating / baking unevenly", "Burner not igniting", "Error code on display", "Door won't close properly", "Temperature inaccurate"],
+    diagnoses: {
+      default: "Oven and range issues most commonly involve a <strong>faulty igniter, bake/broil element, or temperature sensor</strong>. Our tech will diagnose the exact component and give you a clear repair estimate."
+    }
+  },
+  'Ice Maker': {
+    q1: "What's your ice maker issue?",
+    qr1: ["Not making ice at all", "Making ice slowly", "Ice has bad taste or odor", "Ice maker is leaking", "Makes ice but won't dispense"],
+    diagnoses: {
+      default: "Ice maker problems are typically traced to a <strong>faulty water inlet valve, ice maker assembly, or freezer temperature issue</strong>. Our tech will bring the common parts for your brand and diagnose on arrival."
+    }
+  },
+  'Microwave': {
+    q1: "What's happening with your microwave?",
+    qr1: ["Not heating food", "Turntable not rotating", "Display not working", "Making sparking or arcing", "Door won't open or close"],
+    diagnoses: {
+      default: "Microwave issues range from a <strong>blown diode, failed magnetron, or faulty turntable motor</strong> to door switch failures. Our tech will diagnose safely — microwaves store dangerous voltage even when unplugged, so please don't attempt DIY repair."
+    }
+  },
+  'Wine Cooler': {
+    q1: "What's happening with your wine cooler?",
+    qr1: ["Not cooling to set temperature", "Temperature fluctuating", "Making unusual noise", "Displaying an error code", "Compressor running constantly"],
+    diagnoses: {
+      default: "Wine cooler problems often involve the <strong>thermoelectric module, compressor, or thermistor sensor</strong>. We specialize in Sub-Zero and luxury brand units and carry brand-specific parts."
+    }
+  },
+  'Other': {
+    q1: "Please describe the appliance and what it's doing (or not doing).",
+    qr1: [],
+    diagnoses: {
+      default: "Based on what you've described, our technician will perform a complete diagnostic on arrival. We service virtually all home appliances — if it runs in your home, we can fix it."
+    }
+  }
+};
+
+/* ---- State ---- */
+let chatState = CHAT_STATES.GREETING;
+let selectedAppliance = '';
+let symptomAnswer1 = '';
+let symptomAnswer2 = '';
+let userName = '';
+let chatOpen = false;
+let hasOpened = false;
+
+/* ---- DOM ---- */
+const chatWindow   = document.getElementById('chat-window');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput    = document.getElementById('chat-input');
+const fabIconChat  = document.getElementById('fab-icon-chat');
+const fabIconClose = document.getElementById('fab-icon-close');
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  if (chatOpen) {
+    chatWindow.classList.add('open');
+    fabIconChat.style.display = 'none';
+    fabIconClose.style.display = 'block';
+    if (!hasOpened) { hasOpened = true; startChat(); }
+    setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+  } else {
+    chatWindow.classList.remove('open');
+    fabIconChat.style.display = 'block';
+    fabIconClose.style.display = 'none';
+  }
+}
+
+function openChat() {
+  if (!chatOpen) toggleChat();
+}
+
+function addMsg(content, type='bot', delay=0) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.className = `msg ${type}`;
+
+      if (type === 'bot' && delay > 300) {
+        // Show typing indicator first
+        const typing = document.createElement('div');
+        typing.className = 'msg typing';
+        typing.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+        chatMessages.appendChild(typing);
+        scrollBottom();
+
+        setTimeout(() => {
+          chatMessages.removeChild(typing);
+          div.innerHTML = content;
+          chatMessages.appendChild(div);
+          scrollBottom();
+          resolve();
+        }, 900);
+      } else {
+        div.innerHTML = content;
+        chatMessages.appendChild(div);
+        scrollBottom();
+        resolve();
+      }
+    }, delay);
+  });
+}
+
+function addQuickReplies(options, handler) {
+  const wrap = document.createElement('div');
+  wrap.className = 'quick-replies';
+  wrap.id = 'qr-wrap';
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'qr-btn';
+    btn.textContent = opt;
+    btn.onclick = () => {
+      document.getElementById('qr-wrap')?.remove();
+      handler(opt);
+    };
+    wrap.appendChild(btn);
+  });
+  chatMessages.appendChild(wrap);
+  scrollBottom();
+}
+
+function addBookingCTA(diagnosisText) {
+  const div = document.createElement('div');
+  div.className = 'book-cta-msg';
+  div.innerHTML = `
+    <h4>🔍 AI Diagnosis Complete</h4>
+    <p>${diagnosisText}</p>
+    <p style="margin-top:8px;font-size:.75rem;color:#6B7280;">A certified AI5 technician will confirm this diagnosis on arrival.</p>
+    <button class="book-now-btn" onclick="startBooking()">📅 Book a Certified Tech to Fix This →</button>
+  `;
+  chatMessages.appendChild(div);
+  scrollBottom();
+}
+
+function scrollBottom() {
+  setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+}
+
+/* ---- Chat Flow ---- */
+async function startChat() {
+  chatState = CHAT_STATES.GREETING;
+  await addMsg("Hi! 👋 I'm the <strong>AI5 Repair Assistant</strong>. I can diagnose your appliance issue right now — and help you book a same-day technician if needed.", 'bot', 200);
+  await sleep(1200);
+  await addMsg("What appliance is giving you trouble today?", 'bot', 300);
+  chatState = CHAT_STATES.SELECT_APPL;
+  addQuickReplies([
+    'Refrigerator / Freezer', 'Washer', 'Dryer', 'Dishwasher',
+    'Oven / Range / Cooktop', 'Ice Maker', 'Microwave', 'Wine Cooler', 'Other'
+  ], handleApplianceSelect);
+}
+
+async function handleApplianceSelect(appl) {
+  selectedAppliance = appl;
+  await addMsg(appl, 'user');
+  chatState = CHAT_STATES.SYMPTOM_1;
+
+  const tree = SYMPTOM_TREES[appl];
+  await sleep(400);
+  await addMsg(`Got it — let me ask a couple of quick questions to narrow things down. <strong>${tree.q1}</strong>`, 'bot', 600);
+
+  if (tree.qr1 && tree.qr1.length > 0) {
+    addQuickReplies(tree.qr1, handleSymptom1);
+  } else {
+    chatState = CHAT_STATES.SYMPTOM_1;
+    // free text for "Other"
+  }
+}
+
+async function handleSymptom1(ans) {
+  symptomAnswer1 = ans;
+  await addMsg(ans, 'user');
+  chatState = CHAT_STATES.SYMPTOM_2;
+
+  const tree = SYMPTOM_TREES[selectedAppliance];
+
+  // Check if there's a second question
+  if (tree.q2 && tree.q2[ans]) {
+    await sleep(400);
+    await addMsg(tree.q2[ans], 'bot', 600);
+    const options = tree.qr2 && tree.qr2[ans] ? tree.qr2[ans] : [];
+    if (options.length > 0) {
+      addQuickReplies(options, handleSymptom2);
+    } else {
+      // Free-text answer expected (e.g., error code)
+      chatState = CHAT_STATES.SYMPTOM_2;
+    }
+  } else {
+    // Deliver diagnosis directly
+    await deliverDiagnosis('');
+  }
+}
+
+async function handleSymptom2(ans) {
+  symptomAnswer2 = ans;
+  await addMsg(ans, 'user');
+  await deliverDiagnosis(ans);
+}
+
+async function deliverDiagnosis(symptom2) {
+  chatState = CHAT_STATES.DIAGNOSIS;
+  const tree = SYMPTOM_TREES[selectedAppliance];
+  const key = `${symptomAnswer1}|${symptom2}`;
+  let diagText = tree.diagnoses && tree.diagnoses[key]
+    ? tree.diagnoses[key]
+    : (tree.diagnoses && tree.diagnoses['default'])
+      ? tree.diagnoses['default']
+      : "Based on what you've described, our certified technician will diagnose and resolve this issue — we carry parts for all major brands on every truck.";
+
+  await sleep(600);
+  await addMsg("One moment while I analyze your symptoms... 🔍", 'bot', 400);
+  await sleep(1500);
+  addBookingCTA(diagText);
+  chatState = CHAT_STATES.CAPTURE_NAME;
+
+  setTimeout(async () => {
+    await addMsg("To confirm your appointment, can I get your <strong>first name</strong>?", 'bot', 800);
+  }, 2000);
+}
+
+async function startBooking() {
+  await addMsg("Let's get you booked! Can I get your <strong>first name</strong>?", 'bot', 200);
+  chatState = CHAT_STATES.CAPTURE_NAME;
+}
+
+async function handleUserText(text) {
+  if (!text.trim()) return;
+  chatInput.value = '';
+
+  switch (chatState) {
+    case CHAT_STATES.SELECT_APPL:
+      // treat typed text as appliance selection if matches
+      await addMsg(text, 'user');
+      const match = Object.keys(SYMPTOM_TREES).find(k => k.toLowerCase().includes(text.toLowerCase()));
+      if (match) {
+        handleApplianceSelect(match);
+      } else {
+        selectedAppliance = 'Other';
+        await addMsg("I'll do my best to help! Please describe what's happening with your appliance.", 'bot', 400);
+      }
+      break;
+
+    case CHAT_STATES.SYMPTOM_1:
+      await handleSymptom1(text);
+      break;
+
+    case CHAT_STATES.SYMPTOM_2:
+      await handleSymptom2(text);
+      break;
+
+    case CHAT_STATES.CAPTURE_NAME:
+      await addMsg(text, 'user');
+      userName = text.trim().split(' ')[0];
+      chatState = CHAT_STATES.CAPTURE_PHONE;
+      await addMsg(`Thanks, ${userName}! 😊 What's the best <strong>phone number</strong> to confirm your appointment?`, 'bot', 500);
+      break;
+
+    case CHAT_STATES.CAPTURE_PHONE:
+      await addMsg(text, 'user');
+      chatState = CHAT_STATES.CONFIRMED;
+      await sleep(400);
+      await addMsg(`Perfect! ✅ We've got everything we need, ${userName}. Here's what happens next:`, 'bot', 600);
+      await sleep(1200);
+      await addMsg(`<strong>📞 Our team will call you at ${text} within 30 minutes</strong> to confirm your appointment time and give you an estimated repair cost range.`, 'bot', 300);
+      await sleep(1200);
+      await addMsg(`Your AI diagnosis summary will be shared with your technician before they arrive — so they'll be <strong>prepared with the right tools and parts</strong>. 🔧`, 'bot', 300);
+      await sleep(1200);
+      await addMsg(`And as a new customer, <strong>you'll receive 10% off your first completed repair</strong>. 🎉`, 'bot', 300);
+      break;
+
+    case CHAT_STATES.CONFIRMED:
+      await addMsg(text, 'user');
+      await addMsg("Is there anything else you'd like to know? Our team is also available by phone at <strong>808-468-4484</strong> if you'd prefer to speak with someone directly.", 'bot', 400);
+      break;
+
+    default:
+      await addMsg(text, 'user');
+      await addMsg("Got it! To get started with a diagnosis, please tell me which appliance is having trouble.", 'bot', 500);
+      chatState = CHAT_STATES.SELECT_APPL;
+  }
+}
+
+function sendMessage() {
+  const text = chatInput.value.trim();
+  if (text) handleUserText(text);
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter') sendMessage();
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+/* ---- Scroll Reveal ---- */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+/* ---- Animated Stats Counter ---- */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2000;
+  const start = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const value = Math.floor(eased * target);
+    el.textContent = (value >= 1000 ? (value / 1000).toFixed(0) + 'K' : value) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = (target >= 1000 ? (target / 1000).toFixed(0) + 'K' : target) + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.animated) {
+      e.target.dataset.animated = 'true';
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
+
+/* ---- Mobile Nav Toggle ---- */
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  const links = document.querySelector('.nav-links');
+  if (links) links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+});
+
+/* ---- Auto-open chat after delay on first visit ---- */
+setTimeout(() => {
+  if (!chatOpen && !sessionStorage.getItem('chatOpened')) {
+    document.querySelector('.chat-fab').style.animation = 'none';
+    setTimeout(() => {
+      document.querySelector('.chat-fab').style.animation = '';
+    }, 100);
+  }
+}, 8000);
+
+/* ---- Call Widget Tooltip ---- */
+const callTooltip = document.getElementById('call-tooltip');
+let tooltipDismissed = false;
+
+// Auto-hide the tooltip after 4.5 seconds
+setTimeout(() => {
+  if (!tooltipDismissed) {
+    callTooltip.style.transition = 'opacity .4s ease, transform .4s ease';
+    callTooltip.style.opacity = '0';
+    callTooltip.style.transform = 'scale(.9) translateY(8px)';
+    setTimeout(() => { callTooltip.classList.add('hidden'); }, 420);
+    tooltipDismissed = true;
+  }
+}, 4500);
+
+function hideTooltipPermanently() {
+  if (!tooltipDismissed) {
+    tooltipDismissed = true;
+    callTooltip.style.transition = 'opacity .2s ease';
+    callTooltip.style.opacity = '0';
+    setTimeout(() => { callTooltip.classList.add('hidden'); }, 220);
+  }
+}
+</script>
+
+</body>
+</html>
