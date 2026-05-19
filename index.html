@@ -2563,15 +2563,23 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
 <script>
 /* ---- Chatbot State Machine ---- */
 const CHAT_STATES = {
-  GREETING:     'greeting',
-  SELECT_APPL:  'select_appliance',
-  SYMPTOM_1:    'symptom_1',
-  SYMPTOM_2:    'symptom_2',
-  SYMPTOM_3:    'symptom_3',
-  DIAGNOSIS:    'diagnosis',
-  CAPTURE_NAME: 'capture_name',
-  CAPTURE_PHONE:'capture_phone',
-  CONFIRMED:    'confirmed',
+  GREETING:          'greeting',
+  SELECT_APPL:       'select_appliance',
+  SYMPTOM_1:         'symptom_1',
+  SYMPTOM_2:         'symptom_2',
+  SYMPTOM_3:         'symptom_3',
+  DIAGNOSIS:         'diagnosis',
+  BOOKING_FORM:      'booking_form',
+  CAPTURE_FIRST:     'capture_first',
+  CAPTURE_LAST:      'capture_last',
+  CAPTURE_PHONE:     'capture_phone',
+  CAPTURE_EMAIL:     'capture_email',
+  CAPTURE_ADDRESS:   'capture_address',
+  CAPTURE_APPL_TYPE: 'capture_appl_type',
+  CAPTURE_BRAND:     'capture_brand',
+  CAPTURE_DATE:      'capture_date',
+  CAPTURE_ISSUE:     'capture_issue',
+  CONFIRMED:         'confirmed',
 };
 
 /* Appliance-specific symptom trees */
@@ -2717,7 +2725,11 @@ let chatState = CHAT_STATES.GREETING;
 let selectedAppliance = '';
 let symptomAnswer1 = '';
 let symptomAnswer2 = '';
-let userName = '';
+// Booking capture data
+let bookData = {
+  firstName:'', lastName:'', phone:'', email:'',
+  address:'', applType:'', brand:'', date:'', issue:''
+};
 let chatOpen = false;
 let hasOpened = false;
 
@@ -2809,6 +2821,161 @@ function addBookingCTA(diagnosisText) {
   scrollBottom();
 }
 
+/* Render the inline booking form card inside the chat */
+function addBookingForm() {
+  const today = new Date().toISOString().split('T')[0];
+  const div = document.createElement('div');
+  div.id = 'chat-booking-form';
+  div.style.cssText = 'width:100%;margin-top:4px;';
+  div.innerHTML = `
+    <div style="background:linear-gradient(135deg,rgba(120,53,15,.06),rgba(217,119,6,.06));border:1.5px solid rgba(217,119,6,.2);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+      <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--espresso);margin-bottom:2px;">📋 Appointment Details</div>
+      <div style="font-size:.72rem;color:var(--gray-500);margin-bottom:4px;">Fill in your info below and tap <strong>Confirm Booking</strong>.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">First Name *</label>
+          <input id="bf-first" type="text" placeholder="John" style="${inputStyle()}" oninput="bookData.firstName=this.value" />
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Last Name *</label>
+          <input id="bf-last" type="text" placeholder="Smith" style="${inputStyle()}" oninput="bookData.lastName=this.value" />
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Phone Number *</label>
+        <input id="bf-phone" type="tel" placeholder="(808) 000-0000" style="${inputStyle()}" oninput="bookData.phone=this.value" />
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Email Address *</label>
+        <input id="bf-email" type="email" placeholder="john@email.com" style="${inputStyle()}" oninput="bookData.email=this.value" />
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Service Address *</label>
+        <input id="bf-address" type="text" placeholder="123 Main St, Honolulu, HI 96813" style="${inputStyle()}" oninput="bookData.address=this.value" />
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Appliance Type *</label>
+          <select id="bf-appl" style="${inputStyle()}" onchange="bookData.applType=this.value">
+            <option value="">Select...</option>
+            <option>Refrigerator / Freezer</option>
+            <option>Washer</option>
+            <option>Dryer</option>
+            <option>Dishwasher</option>
+            <option>Oven / Range / Cooktop</option>
+            <option>Ice Maker</option>
+            <option>Microwave</option>
+            <option>Wine Cooler</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Brand *</label>
+          <select id="bf-brand" style="${inputStyle()}" onchange="bookData.brand=this.value">
+            <option value="">Select...</option>
+            <option>Sub-Zero</option>
+            <option>Viking</option>
+            <option>KitchenAid</option>
+            <option>GE Monogram</option>
+            <option>Whirlpool</option>
+            <option>Maytag</option>
+            <option>Samsung</option>
+            <option>LG</option>
+            <option>Bosch</option>
+            <option>Thermador</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Preferred Date *</label>
+        <input id="bf-date" type="date" min="${today}" style="${inputStyle()}" onchange="bookData.date=this.value" />
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <label style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-700);">Describe the Issue *</label>
+        <textarea id="bf-issue" rows="3" placeholder="e.g. Fridge stopped cooling overnight, no sounds, freezer still works..." style="${inputStyle()}resize:vertical;" oninput="bookData.issue=this.value"></textarea>
+      </div>
+
+      <div id="bf-error" style="display:none;font-size:.75rem;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 10px;"></div>
+
+      <button onclick="submitChatBooking()" style="background:var(--amber);color:#fff;border:none;border-radius:8px;padding:12px;font-family:var(--font-body);font-weight:700;font-size:.875rem;cursor:pointer;transition:var(--transition);width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+        ✅ Confirm My Appointment
+      </button>
+      <p style="text-align:center;font-size:.68rem;color:var(--gray-500);">🔒 Your info is private. We'll confirm within 30 minutes by phone or text.</p>
+    </div>
+  `;
+  chatMessages.appendChild(div);
+  // Pre-fill appliance type if already selected from symptom flow
+  if (selectedAppliance && selectedAppliance !== 'Other') {
+    const sel = document.getElementById('bf-appl');
+    if (sel) {
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === selectedAppliance) { sel.selectedIndex = i; bookData.applType = selectedAppliance; break; }
+      }
+    }
+  }
+  scrollBottom();
+}
+
+function inputStyle() {
+  return 'width:100%;padding:9px 11px;border:1.5px solid var(--gray-300);border-radius:7px;font-family:var(--font-body);font-size:.8rem;color:var(--charcoal);background:#fff;box-sizing:border-box;';
+}
+
+function submitChatBooking() {
+  // Validate required fields
+  const required = [
+    {id:'bf-first',  label:'First Name',     val:()=>bookData.firstName},
+    {id:'bf-last',   label:'Last Name',      val:()=>bookData.lastName},
+    {id:'bf-phone',  label:'Phone Number',   val:()=>bookData.phone},
+    {id:'bf-email',  label:'Email Address',  val:()=>bookData.email},
+    {id:'bf-address',label:'Service Address',val:()=>bookData.address},
+    {id:'bf-appl',   label:'Appliance Type', val:()=>bookData.applType},
+    {id:'bf-brand',  label:'Brand',          val:()=>bookData.brand},
+    {id:'bf-date',   label:'Preferred Date', val:()=>bookData.date},
+    {id:'bf-issue',  label:'Issue Description',val:()=>bookData.issue},
+  ];
+  const missing = required.filter(r => !r.val() || r.val().trim() === '');
+  const errEl = document.getElementById('bf-error');
+  if (missing.length > 0) {
+    errEl.style.display = 'block';
+    errEl.textContent = 'Please fill in: ' + missing.map(r => r.label).join(', ');
+    scrollBottom();
+    return;
+  }
+  errEl.style.display = 'none';
+  // Remove form and show confirmation
+  const formEl = document.getElementById('chat-booking-form');
+  if (formEl) formEl.remove();
+  chatState = CHAT_STATES.CONFIRMED;
+  showBookingConfirmation();
+}
+
+async function showBookingConfirmation() {
+  await addMsg(`✅ <strong>Booking Received!</strong> Thank you, ${bookData.firstName}!`, 'bot', 200);
+  await sleep(900);
+  await addMsg(`Here's a summary of your appointment request:<br><br>
+    👤 <strong>${bookData.firstName} ${bookData.lastName}</strong><br>
+    📞 ${bookData.phone}<br>
+    📧 ${bookData.email}<br>
+    📍 ${bookData.address}<br>
+    🔧 ${bookData.applType} — ${bookData.brand}<br>
+    📅 Preferred date: ${bookData.date}<br>
+    📝 Issue: ${bookData.issue}`, 'bot', 400);
+  await sleep(1200);
+  await addMsg(`<strong>📞 Our team will call you at ${bookData.phone} within 30 minutes</strong> to confirm your time slot and give you an estimated repair cost.`, 'bot', 400);
+  await sleep(1000);
+  await addMsg(`Your AI diagnosis will be sent to your technician before arrival — they'll come <strong>prepared with the right tools and parts</strong>. 🔧`, 'bot', 400);
+  await sleep(1000);
+  await addMsg(`🎉 As a new customer, <strong>you get 10% off your first completed repair</strong>. We look forward to seeing you, ${bookData.firstName}!`, 'bot', 400);
+}
+
 function scrollBottom() {
   setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
 }
@@ -2887,16 +3054,18 @@ async function deliverDiagnosis(symptom2) {
   await addMsg("One moment while I analyze your symptoms... 🔍", 'bot', 400);
   await sleep(1500);
   addBookingCTA(diagText);
-  chatState = CHAT_STATES.CAPTURE_NAME;
+  chatState = CHAT_STATES.BOOKING_FORM;
 
   setTimeout(async () => {
-    await addMsg("To confirm your appointment, can I get your <strong>first name</strong>?", 'bot', 800);
+    await addMsg("Ready to get this fixed? Tap the button above and I'll collect your appointment details.", 'bot', 800);
   }, 2000);
 }
 
 async function startBooking() {
-  await addMsg("Let's get you booked! Can I get your <strong>first name</strong>?", 'bot', 200);
-  chatState = CHAT_STATES.CAPTURE_NAME;
+  chatState = CHAT_STATES.BOOKING_FORM;
+  await addMsg("Let's get you booked! Please fill in the form below 👇", 'bot', 200);
+  await sleep(400);
+  addBookingForm();
 }
 
 async function handleUserText(text) {
@@ -2905,7 +3074,6 @@ async function handleUserText(text) {
 
   switch (chatState) {
     case CHAT_STATES.SELECT_APPL:
-      // treat typed text as appliance selection if matches
       await addMsg(text, 'user');
       const match = Object.keys(SYMPTOM_TREES).find(k => k.toLowerCase().includes(text.toLowerCase()));
       if (match) {
@@ -2924,24 +3092,10 @@ async function handleUserText(text) {
       await handleSymptom2(text);
       break;
 
-    case CHAT_STATES.CAPTURE_NAME:
+    case CHAT_STATES.BOOKING_FORM:
+      // User typed instead of using the form — prompt them back
       await addMsg(text, 'user');
-      userName = text.trim().split(' ')[0];
-      chatState = CHAT_STATES.CAPTURE_PHONE;
-      await addMsg(`Thanks, ${userName}! 😊 What's the best <strong>phone number</strong> to confirm your appointment?`, 'bot', 500);
-      break;
-
-    case CHAT_STATES.CAPTURE_PHONE:
-      await addMsg(text, 'user');
-      chatState = CHAT_STATES.CONFIRMED;
-      await sleep(400);
-      await addMsg(`Perfect! ✅ We've got everything we need, ${userName}. Here's what happens next:`, 'bot', 600);
-      await sleep(1200);
-      await addMsg(`<strong>📞 Our team will call you at ${text} within 30 minutes</strong> to confirm your appointment time and give you an estimated repair cost range.`, 'bot', 300);
-      await sleep(1200);
-      await addMsg(`Your AI diagnosis summary will be shared with your technician before they arrive — so they'll be <strong>prepared with the right tools and parts</strong>. 🔧`, 'bot', 300);
-      await sleep(1200);
-      await addMsg(`And as a new customer, <strong>you'll receive 10% off your first completed repair</strong>. 🎉`, 'bot', 300);
+      await addMsg("Please use the form above to fill in your appointment details — then tap <strong>Confirm My Appointment</strong>. 👆", 'bot', 400);
       break;
 
     case CHAT_STATES.CONFIRMED:
